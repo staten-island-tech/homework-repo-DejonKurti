@@ -1,4 +1,3 @@
-
 const list = document.querySelectorAll('li');
 const listArray = Array.from(list);
 //console.log(listArray);    
@@ -20,18 +19,23 @@ const filteredTimeStamps = flexboxList.map(item => {
 
 const secondsTotal = filteredTimeStamps.map(time => {
     const parts = time.split(':');
-    return ((parts[0] * 60) + (parts[1]));
-});
-    
-//console.log(secondsTotal); 
-const add = (a, b) => a + b;
+    return (parseInt(parts[0] * 60) + parseInt(parts[1]));
+}).reduce((acc, val) => {
+    return acc + val;
+})
 
-const filtered = secondsTotal.reduce(add);
-
-console.log(filtered);
-
-///im going to sleep bye people 
+//console.log(secondsTotal);
 
 
 
+ //Q2
+  //Given this array: `[3,62,234,7,23,74,23,76,92]`, use the array filter method and an arrow function to create an array of the numbers greater than `70`
 
+const numbers = [3, 62, 234, 7, 23, 74, 23, 76, 92];
+const numbersFilter = numbers.filter(obj => {
+    if (obj>70) {
+        return obj;
+    }
+})
+
+console.log(numbersFilter);
